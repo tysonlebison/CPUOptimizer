@@ -1,6 +1,6 @@
 ﻿namespace CPUOptimizer
 {
-    partial class Form1
+    partial class FormCPUOptimizer
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCPUOptimizer));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.profilingTstrip = new System.Windows.Forms.ToolStripMenuItem();
             this.loadProfileTStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,9 +42,9 @@
             this.lblCores = new System.Windows.Forms.Label();
             this.lblCurrentProcesses = new System.Windows.Forms.Label();
             this.autoProfileTstrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnApply = new System.Windows.Forms.Button();
             this.listBoxCurrentProcesses = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxDefaultCore = new System.Windows.Forms.ListBox();
             this.lblDefaultCore = new System.Windows.Forms.Label();
             this.btnRestoreDefault = new System.Windows.Forms.Button();
             this.exitTstrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +82,7 @@
             this.loadProfileTStrip.Name = "loadProfileTStrip";
             this.loadProfileTStrip.Size = new System.Drawing.Size(194, 22);
             this.loadProfileTStrip.Text = "Load Profile";
+            this.loadProfileTStrip.Click += new System.EventHandler(this.loadProfileTStrip_Click);
             // 
             // saveCurrentToProfileTstrip
             // 
@@ -95,6 +96,7 @@
             this.aboutTstrip.Name = "aboutTstrip";
             this.aboutTstrip.Size = new System.Drawing.Size(52, 20);
             this.aboutTstrip.Text = "About";
+            this.aboutTstrip.Click += new System.EventHandler(this.aboutTstrip_Click);
             // 
             // panel1
             // 
@@ -102,9 +104,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnRestoreDefault);
             this.panel1.Controls.Add(this.lblDefaultCore);
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.listBoxDefaultCore);
             this.panel1.Controls.Add(this.listBoxCurrentProcesses);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnApply);
             this.panel1.Controls.Add(this.lblCurrentProcesses);
             this.panel1.Controls.Add(this.lblCores);
             this.panel1.Controls.Add(this.cboxCores);
@@ -131,6 +133,7 @@
             this.cboxProcesses.Name = "cboxProcesses";
             this.cboxProcesses.Size = new System.Drawing.Size(277, 487);
             this.cboxProcesses.TabIndex = 1;
+            this.cboxProcesses.SelectedIndexChanged += new System.EventHandler(this.cboxProcesses_SelectedIndexChanged);
             // 
             // cboxCores
             // 
@@ -139,6 +142,7 @@
             this.cboxCores.Name = "cboxCores";
             this.cboxCores.Size = new System.Drawing.Size(153, 172);
             this.cboxCores.TabIndex = 2;
+            this.cboxCores.SelectedIndexChanged += new System.EventHandler(this.cboxCores_SelectedIndexChanged);
             // 
             // lblCores
             // 
@@ -163,15 +167,17 @@
             this.autoProfileTstrip.Name = "autoProfileTstrip";
             this.autoProfileTstrip.Size = new System.Drawing.Size(194, 22);
             this.autoProfileTstrip.Text = "Automatic Profiling";
+            this.autoProfileTstrip.Click += new System.EventHandler(this.autoProfileTstrip_Click);
             // 
-            // button1
+            // btnApply
             // 
-            this.button1.Location = new System.Drawing.Point(739, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 30);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnApply.Location = new System.Drawing.Point(739, 218);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(153, 30);
+            this.btnApply.TabIndex = 5;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // listBoxCurrentProcesses
             // 
@@ -181,15 +187,17 @@
             this.listBoxCurrentProcesses.Name = "listBoxCurrentProcesses";
             this.listBoxCurrentProcesses.Size = new System.Drawing.Size(203, 484);
             this.listBoxCurrentProcesses.TabIndex = 6;
+            this.listBoxCurrentProcesses.SelectedIndexChanged += new System.EventHandler(this.listBoxCurrentProcesses_SelectedIndexChanged);
             // 
-            // listBox1
+            // listBoxDefaultCore
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(739, 303);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(153, 224);
-            this.listBox1.TabIndex = 7;
+            this.listBoxDefaultCore.FormattingEnabled = true;
+            this.listBoxDefaultCore.ItemHeight = 20;
+            this.listBoxDefaultCore.Location = new System.Drawing.Point(739, 303);
+            this.listBoxDefaultCore.Name = "listBoxDefaultCore";
+            this.listBoxDefaultCore.Size = new System.Drawing.Size(153, 224);
+            this.listBoxDefaultCore.TabIndex = 7;
+            this.listBoxDefaultCore.SelectedIndexChanged += new System.EventHandler(this.listBoxDefaultCore_SelectedIndexChanged);
             // 
             // lblDefaultCore
             // 
@@ -208,12 +216,14 @@
             this.btnRestoreDefault.TabIndex = 9;
             this.btnRestoreDefault.Text = "Restore Windows Default";
             this.btnRestoreDefault.UseVisualStyleBackColor = true;
+            this.btnRestoreDefault.Click += new System.EventHandler(this.btnRestoreDefault_Click);
             // 
             // exitTstrip
             // 
             this.exitTstrip.Name = "exitTstrip";
             this.exitTstrip.Size = new System.Drawing.Size(37, 20);
             this.exitTstrip.Text = "Exit";
+            this.exitTstrip.Click += new System.EventHandler(this.exitTstrip_Click);
             // 
             // label1
             // 
@@ -237,8 +247,9 @@
             this.richTextBox1.Size = new System.Drawing.Size(179, 185);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
-            // Form1
+            // FormCPUOptimizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,7 +257,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "FormCPUOptimizer";
             this.Text = "CPU Optimizer";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -271,12 +282,12 @@
         private System.Windows.Forms.CheckedListBox cboxCores;
         private System.Windows.Forms.CheckedListBox cboxProcesses;
         private System.Windows.Forms.Label lblProcesses;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.ListBox listBoxCurrentProcesses;
         private System.Windows.Forms.ToolStripMenuItem exitTstrip;
         private System.Windows.Forms.Button btnRestoreDefault;
         private System.Windows.Forms.Label lblDefaultCore;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxDefaultCore;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
