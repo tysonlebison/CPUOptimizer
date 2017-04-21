@@ -37,7 +37,7 @@ namespace CPUOptimizer
 
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void listBoxCurrentProcesses_TextChanged(object sender, EventArgs e)
         {
 
         }

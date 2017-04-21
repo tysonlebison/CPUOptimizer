@@ -8,5 +8,6 @@ namespace CPUOptimizer
 {
     class Optimizer
     {
+
     }
 }

@@ -50,7 +50,7 @@
             this.exitTstrip = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxProcessInfo = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.richTextBoxProcessInfo);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnRestoreDefault);
             this.panel1.Controls.Add(this.lblDefaultCore);
@@ -239,15 +239,15 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // richTextBox1
+            // richTextBoxProcessInfo
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(554, 63);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(179, 185);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBoxProcessInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxProcessInfo.Location = new System.Drawing.Point(554, 63);
+            this.richTextBoxProcessInfo.Name = "richTextBoxProcessInfo";
+            this.richTextBoxProcessInfo.Size = new System.Drawing.Size(179, 185);
+            this.richTextBoxProcessInfo.TabIndex = 11;
+            this.richTextBoxProcessInfo.Text = resources.GetString("richTextBoxProcessInfo.Text");
+            this.richTextBoxProcessInfo.TextChanged += new System.EventHandler(this.listBoxCurrentProcesses_TextChanged);
             // 
             // FormCPUOptimizer
             // 
@@ -288,7 +288,7 @@
         private System.Windows.Forms.Button btnRestoreDefault;
         private System.Windows.Forms.Label lblDefaultCore;
         private System.Windows.Forms.ListBox listBoxDefaultCore;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBoxProcessInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
