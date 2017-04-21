@@ -16,5 +16,15 @@ namespace CPUOptimizer
         {
             InitializeComponent();
         }
+
+        private void saveCurrentProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
